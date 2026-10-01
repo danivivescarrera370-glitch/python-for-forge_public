@@ -1,6 +1,6 @@
 # python-for-forge_public
 
-An unofficial **Forge** and **NeoForge** port of [Fabric Language Python](https://modrinth.com/mod/fabric-language-python). This project delivers a high-performance language adapter pipeline, allowing developers to write fully-featured modifications for (Neo)Forge environments using native Python 3 syntax instead of traditional Java.
+An unofficial **Forge** and **NeoForge** port of [Fabric Language Python](https://github.com/hellojaviergarcia/fabric-language-python_public/tree/main). This project delivers a high-performance language adapter pipeline, allowing developers to write fully-featured modifications for (Neo)Forge environments using native Python 3 syntax instead of traditional Java.
 
 ## Features
 
