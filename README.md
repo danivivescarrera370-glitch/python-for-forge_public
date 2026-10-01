@@ -1,12 +1,12 @@
 # python-for-forge_public
 
-An unofficial (Neo)Forge port of [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin), built specifically to seamlessly execute Python scripting configurations and language adapters across modern **Forge** and **NeoForge** environments.
+An unofficial **Forge** and **NeoForge** port of [Fabric Language Python](https://modrinth.com/mod/fabric-language-python). This project delivers a high-performance language adapter pipeline, allowing developers to write fully-featured modifications for (Neo)Forge environments using native Python 3 syntax instead of traditional Java.
 
 ## Features
 
-- **Multi-Loader Compatibility:** Native support for both legacy Forge and modern NeoForge ecosystems.
-- **Upstream Alignment:** Ported components mirror the robust language adapter architecture found in [Fabric Language Kotlin](https://github.com/FabricMC/fabric-language-kotlin).
-- **Embedded Runtimes:** Shipped with pre-configured language providers to execute non-Java scripting layers seamlessly on the JVM.
+- **Multi-Loader Support:** Fully bridges the Python scripting layer across modern **Forge** and **NeoForge** ecosystems.
+- **GraalVM Driven:** Powered by an embedded GraalVM container, removing any requirement for players to install Python natively on their local machines.
+- **Full Engine Mapping:** Mirrors the original adapter's capacity to handle items, blocks, engine events, and native Mixins directly from Python scripts.
 
 ---
 
@@ -16,20 +16,20 @@ An unofficial (Neo)Forge port of [Fabric Language Kotlin](https://github.com/Fab
 python-for-forge_public/
 ├── src/
 │   └── pymod/
-│       ├── __init__.py      # Script initialization entry point
-│       └── adapters/        # NeoForge / Forge bridging adapters
+│       ├── __init__.py      # Main script entry point and hook registry
+│       └── mixins/          # Mixin injection classes written in Python
 └── META-INF/
-    └── mods.toml            # Mod metadata and platform rules
+    └── mods.toml            # Forge/NeoForge mod metadata configuration
 ```
 
 ---
 
 ## Configuration (`mods.toml`)
 
-Configure `META-INF/mods.toml` to dynamically hook into the modern (Neo)Forge lifecycle layers:
+Your `META-INF/mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
 
 ```toml
-modLoader = "javafml"        # Or "neoforge" depending on your target version
+modLoader = "javafml"        # Switch to "neoforge" if targeting a pure NeoForge platform
 loaderVersion = "[1,)"
 issueTrackerURL = "https://github.com"
 
@@ -37,17 +37,17 @@ issueTrackerURL = "https://github.com"
 modId = "python_for_forge"
 version = "1.0.0"
 displayName = "Python for Forge"
-description = "An unofficial (Neo)Forge port of Fabric Language Kotlin, delivering robust Python language adapter pipelines to modding workflows."
+description = "An unofficial (Neo)Forge language provider port of Fabric Language Python. Write mods entirely using clean Python syntax."
 ```
 
 ---
 
-## Usage & Implementation
+## Quick Start Template (`__init__.py`)
 
-Implement your bootstrapping logic inside `src/pymod/__init__.py`. This lifecycle adapter mirrors upstream behavior while dispatching events correctly within (Neo)Forge environments:
+This boilerplate registers components and listens to lifecycle hooks inside your Python environment:
 
 ```python
-from pyforge.decorators import Mod, SubscribeEvent
+from pyforge.decorators import Mod, SubscribeEvent, Mixin
 from pyforge.events import PlayerLoggedInEvent
 from pyforge.logger import get_logger
 
@@ -56,17 +56,18 @@ logger = get_logger("PythonForForge")
 @Mod("python_for_forge")
 class PythonForForgePort:
     def __init__(self):
-        logger.info("Python for Forge Language Port successfully initialized.")
+        logger.info("Python for Forge language adapter initialized.")
 
     @SubscribeEvent
     def on_player_join(self, event: PlayerLoggedInEvent):
         player_name = event.get_player().get_name().getString()
-        logger.info(f"[Port Event] Handled login sequence for: {player_name}")
+        logger.info(f"[Python for Forge] Logged user entry: {player_name}")
 ```
 
 ---
 
-## Deploying
+## Deployment & Setup
 
-1. **Drop-in Dependency:** Place the compiled `python-for-forge_public` structure directly into your instance's `/mods` directory.
-2. **Compatibility Layer:** Ensure your development environment has your chosen compatibility runtime (e.g., [Sinytra Connector](https://github.com/Sinytra/Connector) or similar bridge APIs) if you are cross-compiling or mapping multi-loader dependencies.
+1. **Workspace Sync:** Ensure your codebase matches the root directory name `python-for-forge_public`.
+2. **Installation:** Place the built `python-for-forge_public` mod folder directly inside your targeted instance's `.minecraft/mods/` directory.
+3. **Execution:** Launch Minecraft through your configured Forge or NeoForge game profile. The engine parses the language adapter metadata and safely runs the script containers.
