@@ -26,7 +26,7 @@ python-for-forge_public/
 
 ## Configuration (`mods.toml`)
 
-Your `META-INF/mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
+This `META-INF/mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
 
 ```toml
 modLoader = "javafml"        # Switch to "neoforge" if targeting a pure NeoForge platform
