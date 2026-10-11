@@ -1,4 +1,4 @@
-# 📚 Fabric-Language-Python Modding
+# 📚 Python-for-Forge Modding
 
 Welcome to the **comprehensive guide** on building Minecraft mods using `fabric-language-python`. This document covers **every feature, API, and pattern** the framework provides — from a simple "Hello World" item to JIT-compiled world generation, custom GUIs, networking, Mixins, and beyond.
 
@@ -61,7 +61,7 @@ Welcome to the **comprehensive guide** on building Minecraft mods using `fabric-
 
 ## 1. Introduction & Architecture
 
-`fabric-language-python` is a **Language Adapter** for Fabric that allows you to write Minecraft mods entirely in **Python 3**.
+`python-for-forge` is a **Language Adapter** for Fabric that allows you to write Minecraft mods entirely in **Python 3**.
 
 ### What Makes It Special
 
@@ -92,7 +92,7 @@ Welcome to the **comprehensive guide** on building Minecraft mods using `fabric-
 ├─────────────────────────────────────────────────────┤
 │        GraalPy 25.0.2 (JVM Python Runtime)           │
 ├─────────────────────────────────────────────────────┤
-│         Fabric Loader + Minecraft 26.2               │
+│     NeoForge(Unofficial) Loader + Minecraft 26.2    │
 └─────────────────────────────────────────────────────┘
 ```
 
