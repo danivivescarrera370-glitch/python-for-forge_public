@@ -19,14 +19,14 @@ python-for-forge_public/
 │       ├── __init__.py      # Main script entry point and hook registry
 │       └── mixins/          # Mixin injection classes written in Python
 └── META-INF/
-    └── mods.toml            # Forge/NeoForge mod metadata configuration
+    └── neoforge.mods.toml   # Forge/NeoForge mod metadata configuration
 ```
 
 ---
 
-## Configuration (`mods.toml`)
+## Configuration (`neoforge.mods.toml`)
 
-This `META-INF/mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
+This `META-INF/neoforge.mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
 
 ```toml
 modLoader = "javafml"
