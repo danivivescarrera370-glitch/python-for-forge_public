@@ -29,15 +29,30 @@ python-for-forge_public/
 This `META-INF/mods.toml` maps your Python scripts to the modern (Neo)Forge FML ecosystem:
 
 ```toml
-modLoader = "javafml"        # Switch to "neoforge" if targeting a pure NeoForge platform
+modLoader = "javafml"
 loaderVersion = "[1,)"
+license = "MIT"
 issueTrackerURL = "https://github.com"
 
 [[mods]]
 modId = "python_for_forge"
 version = "1.0.0"
 displayName = "Python for Forge"
-description = "An unofficial (Neo)Forge language provider port of Fabric Language Python. Write mods entirely using clean Python syntax."
+description = "An unofficial NeoForge language provider port of Fabric Language Python. Write mods entirely using clean Python syntax."
+
+[[dependencies.python_for_forge]]
+modId = "minecraft"
+type = "required"
+versionRange = "[26.2,26.3)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.python_for_forge]]
+modId = "neoforge"
+type = "required"
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
 ```
 
 ---
